@@ -7,7 +7,7 @@ import weight from "./images/Weight.svg";
 import height from "./images/Height.svg";
 import { useParams } from "react-router-dom";
 import Datos from "../data/datos";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   RadialBarChart,
   RadialBar,
@@ -29,36 +29,39 @@ const PokemonProfile = () => {
   });
   console.log(pokemonDetail);
 
-  // const pokemonPrevius = Datos.forEach((arreglo, index) => {
-  //   if (arreglo.nombre === pokemonDetail[0].nombre) {
-  //     return Datos[index - 1].nombre;
+  const pokemonIndex = Datos.findIndex((arrayDatos) => {
+    return arrayDatos.nombre === nombre;
+  });
+
+  // const pokemonTypes = Datos.filter((arrayTypes) => {
+  //   if (arrayTypes.nombre === nombre) {
+  //     return arrayTypes.type;
   //   }
   // });
-  let pokemonPrevius = "";
-  let pokemonPost = "";
+  const pokemonMoves = (array) => {
+    return array.map((array, index) => <li key={index}>{array}</li>);
+  };
+
+  console.log("Los tipos: " + pokemonDetail[0].type[1]);
+
+  let pokemonPre = "";
+  let pokemonPos = "";
   Datos.forEach(function (arreglo, index) {
     if (arreglo.nombre === pokemonDetail[0].nombre) {
       console.log("prueba:" + arreglo.nombre + index);
-      pokemonPrevius = Datos[index - 1];
-      pokemonPost = Datos[index + 1];
+      if (index === 0 || index === 8) {
+        pokemonPre = Datos[index];
+        pokemonPos = Datos[index];
+      } else {
+        pokemonPre = Datos[index - 1];
+        pokemonPos = Datos[index + 1];
+      }
     }
   });
-  const pokemonPre = pokemonPrevius;
+  const pokemonPrevius = pokemonPre;
+  const pokemonPost = pokemonPos;
   console.log(pokemonPre.nombre);
 
-  //   Array.from(Datos).filter(([index, nombre]) => {
-  //     if (Array.nombre === pokemonDetail[0].nombre) {
-  //       return Array[index - 1].nombre;
-  //     }
-  //   })
-  //   // => {
-  //   // if (Array.nombre === pokemonDetail[0].nombre) {
-  //   //   return Datos[index - 1].nombre;
-  //   // }
-  // );
-  // console.log(pokemonPrevius);
-  // const Profile = (Array) => {
-  //   Array.map((items) => {
   return (
     <div
       className="container-description"
@@ -79,17 +82,31 @@ const PokemonProfile = () => {
 
       <main>
         <div className="image-section">
-          <Link to={`PokemonProfile/${pokemonPre.nombre}`}>
-            <img className="frame-left" src={frame} alt="Frame" />
-          </Link>
+          {Datos[pokemonIndex - 1] && (
+            <Link to={`/PokemonProfile/${Datos[pokemonIndex - 1].nombre}`}>
+              <img className="frame-left" src={frame} alt="Frame" />
+            </Link>
+          )}
+
           <img className="pokemon-image" src={pokemonDetail[0].img} alt="#" />
-          <a href="">
-            <img className="frame-right" src={frame} alt="Frame" />
-          </a>
+          {Datos[pokemonIndex + 1] && (
+            <Link to={`/PokemonProfile/${Datos[pokemonIndex + 1].nombre}`}>
+              <img className="frame-right" src={frame} alt="Frame" />
+            </Link>
+          )}
         </div>
         <div className="types-sections-container">
-          <button className="verde">{pokemonDetail[0].type}</button>
-          <button className="violeta">Polson</button>
+          {pokemonDetail[0].type[0] && (
+            <button
+              className="types-tag "
+              style={{ backgroundColor: pokemonDetail[0].color }}
+            >
+              {pokemonDetail[0].type[0]}
+            </button>
+          )}
+          {pokemonDetail[0].type[1] && (
+            <button className="violeta">{pokemonDetail[0].type[1]}</button>
+          )}
         </div>
         <div className="about-subtitle">
           <h4 style={{ color: pokemonDetail[0].color }}>About</h4>
@@ -104,8 +121,9 @@ const PokemonProfile = () => {
             <p> {pokemonDetail[0].height}</p>
           </div>
           <div className="moves">
-            Chiorophyll <br />
-            Overgrow
+            {/* Chiorophyll <br />
+            Overgrow */}
+            <ul>{pokemonMoves(pokemonDetail[0].moves)}</ul>
           </div>
         </div>
         <div className="miniTitle">

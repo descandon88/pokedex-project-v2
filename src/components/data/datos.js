@@ -3,11 +3,12 @@ let pokemons = [
     nombre: "Bulbasour",
     id: "001",
     img: "../public/img/Bulbasour.png",
-    type: "Grass",
+    type: ["Grass", "Poisson"],
     weight: "6,9 kg",
     height: "0,7 m",
     description:
       "There is a plant seed on its back right from day this pokemon is born.The seeed sloowly grows larger.",
+    moves: ["Chlorophyll", "Overgrow"],
     stats: [
       {
         skills: "HP",
@@ -52,7 +53,7 @@ let pokemons = [
     nombre: "Charmander",
     id: "004",
     img: "../public/img/Charmander.png",
-    type: "Fire",
+    type: ["Fire"],
     weight: "8,5 kg",
     height: "0,6 m",
     moves: ["Mega-Punch", "Fire-Punch"],
@@ -102,10 +103,10 @@ let pokemons = [
     nombre: "Squirtle",
     id: "007",
     img: "../public/img/squirtle.png",
-    type: "Water",
+    type: ["Water"],
     weight: "9,0 kg",
     height: "0,5 m",
-    moves: "[Torrent, Rain-Dish]",
+    moves: ["Torrent", "Rain-Dish"],
     description:
       "When it retracts its long neck into its shell, it squirts out water with vigorous force.",
     stats: [
@@ -152,7 +153,7 @@ let pokemons = [
     nombre: "Butterfree",
     id: "012",
     img: "../public/img/Butterfree.png",
-    type: "Flying",
+    type: ["Bug", "Flying"],
     weight: "32,0 kg",
     height: "1,1 m",
     moves: ["Compound-Eyes", "Tristed-Lens"],
@@ -193,10 +194,10 @@ let pokemons = [
     ],
   },
   {
-    nombre: "Picachu",
+    nombre: "Pikachu",
     id: "025",
     img: "../public/img/picachu.png",
-    type: "Electric",
+    type: ["Electric"],
     weight: "5,0 kg",
     height: "0,4 m",
     moves: ["Mega-Punch", "Pay-Day"],
@@ -246,7 +247,7 @@ let pokemons = [
     nombre: "Gastly",
     id: "092",
     img: "../public/img/Gostly.png",
-    type: "Ghost",
+    type: ["Ghost"],
     weight: "0,1 kg",
     height: "1,3 m",
     description:
@@ -290,9 +291,10 @@ let pokemons = [
     nombre: "Ditto",
     id: "132",
     img: "../public/img/Ditto.png",
-    type: "Normal",
+    type: ["Normal"],
     weight: "4,0 kg",
     height: "0,3 m",
+    moves: ["Limber", "Imposter"],
     description:
       "It can reconstitute its entire cellular structure to change into what it sees, but it returns to normal when it relaxes.",
     stats: [
@@ -333,7 +335,7 @@ let pokemons = [
     nombre: "Mew",
     id: "162",
     img: "../public/img/mew.png",
-    type: "Psychic",
+    type: ["Psychic"],
     weight: "4,0 kg",
     height: "0,4 m",
     moves: ["Synchronize"],
@@ -375,10 +377,43 @@ let pokemons = [
     nombre: "Aron",
     id: "304",
     img: "../public/img/Aron.png",
-    type: "Steal",
+    type: ["Steal", "Rock"],
     weight: "60,0 kg",
     height: "0,4 m",
     color: "rgb(183, 185, 208)",
+    moves: ["Sturdy", "Rock-Head"],
+    stats: [
+      {
+        skills: "HP",
+        Quantity: 50,
+        fullmark: 110,
+      },
+      {
+        skills: "ATK",
+        Quantity: 70,
+        fullmark: 110,
+      },
+      {
+        skills: "DEF",
+        Quantity: 100,
+        fullmark: 110,
+      },
+      {
+        skills: "SATK",
+        Quantity: 40,
+        fullmark: 110,
+      },
+      {
+        skills: "SDEF",
+        Quantity: 40,
+        fullmark: 110,
+      },
+      {
+        skills: "SPD",
+        Quantity: 30,
+        fullmark: 110,
+      },
+    ],
   },
 ];
 

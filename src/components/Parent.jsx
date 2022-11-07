@@ -13,6 +13,7 @@ function Parent() {
   const [buttonSort, setButtonSort] = useState("#️⃣⬇️");
   const [MostrarButton, setMostrarButton] = useState(false);
   const [mostrarProfile, setmostrarProfile] = useState(false);
+  const [variableLink, setvariableLink] = useState("");
 
   const navigate = useNavigate();
 
@@ -101,7 +102,11 @@ function Parent() {
         PokemonSearch={pokemonSearch}
         label="🔍"
       />
-      <Cards DatosApi={apiPokemon} />
+      <Cards
+        DatosApi={apiPokemon}
+        // setVariableLink={setvariableLink}
+        // variableLink={variableLink}
+      />
       {/* <PokemonProfile MostrarProfile={mostrarProfile} /> */}
     </div>
   );

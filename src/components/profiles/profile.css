@@ -105,12 +105,13 @@ button {
   /* width:100%; */
 }
 
-.verde {
-    background-color: #74CB48;
+.types-tag {
+    /* background-color: #74CB48; */
     font-weight: 600;
     border-radius: 50px;
     padding: 2px 8px;
-    font-size: 15px
+    font-size: 15px;
+    color: white;
 }
 
 .violeta {
@@ -118,7 +119,8 @@ button {
     font-weight: 600;
     border-radius: 50px;
     padding: 2px 8px;
-    font-size: 15px
+    font-size: 15px;
+    color:white;
 
 }
 
