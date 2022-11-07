@@ -30,8 +30,9 @@
     --PoisonText: #470044;
     --Ground: #DEC16B;
     --GroundText: #6B5000;
-    --Bug: #A78723;
-    --BugText: #6B5100;
+    --Bug: #a7b723;
+    --BugText: #5E6900;
+
     --Fire: #F57D31;
     --FireText: #3E1800;
     --Electric: #F9CF30;
@@ -121,11 +122,11 @@
 }
 
 
-#Flying {
-    background: linear-gradient(180deg, var(--Background)10%, var(--FlyingText) 100%);
-    border-top: 2px solid var(--Flying);
-    border-left: 2px solid var(--Flying);
-    border-right: 2px solid var(--Flying);
+#Bug {
+    background: linear-gradient(180deg, var(--Background)10%, var(--BugText) 100%);
+    border-top: 2px solid var(--Bug);
+    border-left: 2px solid var(--Bug);
+    border-right: 2px solid var(--Bug);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -134,8 +135,8 @@
 
 }
 
-#Flying2 {
-    background-color: var(--Flying);
+#Bug2 {
+    background-color: var(--Bug);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }

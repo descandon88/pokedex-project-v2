@@ -8,14 +8,14 @@ function Cards(props) {
     return obj.map((obj, index) => (
       <Link to={`PokemonProfile/${obj.nombre}`}>
         <li className="li-Cards" key={index}>
-          <div className="Cards" id={obj.type}>
+          <div className="Cards" id={obj.type[0]}>
             <div className="CardsUp">
-              <p className="Codigo">{"#" + obj.id}</p>
+              <p className="Codigo">{"#"+obj.id}</p>
             </div>
             <div className="CardsBody">
               <img className="pokemon" src={obj.img}></img>
             </div>
-            <div className="CardsDown" id={obj.type + "2"}>
+            <div className="CardsDown" id={obj.type[0] + "2"}>
               <p className="pokeName">
                 <b>{obj.nombre}</b>
               </p>
