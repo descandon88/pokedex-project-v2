@@ -30,8 +30,8 @@
     --PoisonText: #470044;
     --Ground: #DEC16B;
     --GroundText: #6B5000;
-    --Bug: #A78723;
-    --BugText: #6B5100;
+    --Bug: #A7B723;
+    --BugText: #5E6900;
     --Fire: #F57D31;
     --FireText: #3E1800;
     --Electric: #F9CF30;
@@ -121,21 +121,21 @@
 }
 
 
-#Flying {
-    background: linear-gradient(180deg, var(--Background)10%, var(--FlyingText) 100%);
-    border-top: 2px solid var(--Flying);
-    border-left: 2px solid var(--Flying);
-    border-right: 2px solid var(--Flying);
+#Bug {
+    background: linear-gradient(180deg, var(--Background)10%, var(--BugText) 100%);
+    border-top: 2px solid var(--Bug);
+    border-left: 2px solid var(--Bug);
+    border-right: 2px solid var(--Bug);
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
-    color: var(--FlyingText);
+    color: var(--BugText);
 
 }
 
-#Flying2 {
-    background-color: var(--Flying);
+#Bug2 {
+    background-color: var(--Bug);
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
 }
@@ -283,6 +283,9 @@
     grid-template-rows: 1fr 1fr;
     padding-left: 0px;
     list-style: none;
+    width:390px;
+    height:390px;
+
 
 }
 

@@ -6,6 +6,7 @@ import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // import Root from "./routes/root";
+import PageNotFound from "./routes/pageNoFound";
 import Root from "./components/Parent";
 import PokemonProfile from "./components/profiles/Pokemonprofile";
 
@@ -17,6 +18,10 @@ const router = createBrowserRouter([
   {
     path: "PokemonProfile/:nombre",
     element: <PokemonProfile />,
+  },
+  {
+    path: "*",
+    element: <PageNotFound />,
   },
 ]);
 
