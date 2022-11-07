@@ -19,6 +19,9 @@ import {
   PolarRadiusAxis,
   Radar,
 } from "recharts";
+
+import PokemonError from "../profiles/ErrorPokemon"
+
 // import Chart from "react-apexcharts";
 
 const PokemonProfile = () => {
@@ -28,7 +31,13 @@ const PokemonProfile = () => {
     return arrayDatos.nombre === nombre;
   });
   console.log(pokemonDetail);
-
+  if (pokemonDetail.length == 0) {
+    return (
+      <div >
+       <PokemonError/>
+      </div>
+    );
+  }
   const pokemonIndex = Datos.findIndex((arrayDatos) => {
     return arrayDatos.nombre === nombre;
   });

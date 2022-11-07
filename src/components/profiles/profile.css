@@ -397,3 +397,10 @@ div.about-subtitle > h4 {
     0% { width: 0; }
     100% { width: 22.5%; }
   }
+
+  .pokemonError{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+  }

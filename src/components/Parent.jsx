@@ -88,6 +88,7 @@ function Parent() {
 
   return (
     <div >
+      <div>
       <Searcher
         // handleSearchPokemon={handleSearch}
         PokemonInput={inputText}
@@ -102,13 +103,17 @@ function Parent() {
         PokemonSearch={pokemonSearch}
         label="🔍"
       />
+      </div>
+      <div>
       <Cards
         DatosApi={apiPokemon}
         // setVariableLink={setvariableLink}
         // variableLink={variableLink}
       />
       {/* <PokemonProfile MostrarProfile={mostrarProfile} /> */}
+      </div>
     </div>
+
   );
 }
 

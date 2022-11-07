@@ -281,9 +281,12 @@
 .ul-Cards {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
     padding-left: 0px;
+    padding-right: 0px;
     list-style: none;
+    width: 390px;
+    height: 590px;
 
 }
 
@@ -294,4 +297,9 @@
 
 li.li-Cards>img {
     width: 100%;
+}
+
+.linkCards{
+    width: 130px;
+    height: 200px;
 }
