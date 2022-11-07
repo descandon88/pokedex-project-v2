@@ -76,7 +76,7 @@ function Parent() {
   };
 
   return (
-    <div className="fondo">
+    <div >
       <Searcher
         // handleSearchPokemon={handleSearch}
         PokemonInput={inputText}

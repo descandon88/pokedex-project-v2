@@ -20,6 +20,8 @@ header {
 header::before {
     content: "";
     position: absolute;
+    width: 250px;
+    height: 250px;
     top: 1%;
     left: 45%;
     bottom: 0;
@@ -29,6 +31,26 @@ header::before {
     background-repeat: no-repeat;
     background-size: 250px;
     filter: invert(10) brightness(1.2);
+}
+
+@media (max-width: 390px){
+
+  header::before {
+    content: "";
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    top: 1%;
+    left: 35%;
+    bottom: 0;
+    right: 0;
+    opacity: 0.2;
+    background-image: url(../src/components/data/img/Pokeball.png);
+    background-repeat: no-repeat;
+    background-size: 250px;
+    filter: invert(10) brightness(1.2);
+}
+
 }
 
 .arrowLeft {
@@ -71,6 +93,7 @@ main {
     margin-top: -80px;
     width: 200px;
     position: relative;
+    
     /* margin-left: 60px; */
 }
 
@@ -128,6 +151,7 @@ button {
   display:flex;
   justify-content:center;
   font-size: 18px;
+  height: 45px;
   
 }
 
@@ -140,9 +164,11 @@ div.about-subtitle > h4 {
 .pokemon-description {
   display:flex;
   justify-content:center;
-  padding:0px;
-  padding-left:10px;
-  padding-right:10px;
+  padding:0px 10px 0px 10px;
+  height: 35px;
+  margin-top: 0px;
+  margin-bottom: 10pxpx;
+ 
 }
 
 .title-BaseStats {
@@ -159,7 +185,9 @@ div.about-subtitle > h4 {
     justify-content: space-between;
     align-items: center;
     width: 85%;
+    height: 24px;
     margin: 0 auto 0 auto;
+    padding: 0px;
     color: black;
 }
 
@@ -396,4 +424,15 @@ div.about-subtitle > h4 {
   @keyframes load6 {
     0% { width: 0; }
     100% { width: 22.5%; }
+  }
+
+  .pokemonError{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    
+  }
+  .listUl{
+    list-style: none;
+    margin-top: 5px;
   }

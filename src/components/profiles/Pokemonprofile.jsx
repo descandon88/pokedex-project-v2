@@ -19,6 +19,9 @@ import {
   PolarRadiusAxis,
   Radar,
 } from "recharts";
+
+import PokemonError from "../profiles/ErrorPokemon"
+
 // import Chart from "react-apexcharts";
 
 const PokemonProfile = () => {
@@ -28,7 +31,13 @@ const PokemonProfile = () => {
     return arrayDatos.nombre === nombre;
   });
   console.log(pokemonDetail);
-
+  if (pokemonDetail.length == 0) {
+    return (
+      <div >
+       <PokemonError/>
+      </div>
+    );
+  }
   const pokemonIndex = Datos.findIndex((arrayDatos) => {
     return arrayDatos.nombre === nombre;
   });
@@ -121,9 +130,8 @@ const PokemonProfile = () => {
             <p> {pokemonDetail[0].height}</p>
           </div>
           <div className="moves">
-            {/* Chiorophyll <br />
-            Overgrow */}
-            <ul>{pokemonMoves(pokemonDetail[0].moves)}</ul>
+           
+            <ul className="listUl">{pokemonMoves(pokemonDetail[0].moves)}</ul>
           </div>
         </div>
         <div className="miniTitle">
@@ -140,46 +148,7 @@ const PokemonProfile = () => {
           Base Stats
         </h4>
 
-        {/* <div className="stats">
-          <div className="column">
-            <div className="letters">
-              <p>HP</p>
-              <p>ATK</p>
-              <p>DEF</p>
-              <p>SATK</p>
-              <p>SDEF</p>
-              <p>SPD</p>
-            </div>
-            <div className="numbers">
-              <p>{pokemonDetail[0].HP}</p>
-              <p>{pokemonDetail[0].ATK}</p>
-              <p>{pokemonDetail[0].DEF}</p>
-              <p>{pokemonDetail[0].SATK}</p>
-              <p>{pokemonDetail[0].SDEF}</p>
-              <p>{pokemonDetail[0].SPD}</p>
-            </div>
-          </div>
-          <div className="porcentaje">
-            <div className="porcentaje1">
-              <div className="progress1"></div>
-            </div>
-            <div className="porcentaje2">
-              <div className="progress2"></div>
-            </div>
-            <div className="porcentaje3">
-              <div className="progress3"></div>
-            </div>
-            <div className="porcentaje4">
-              <div className="progress4"></div>
-            </div>
-            <div className="porcentaje5">
-              <div className="progress5"></div>
-            </div>
-            <div className="porcentaje6">
-              <div className="progress6"></div>
-            </div>
-          </div>
-        </div> */}
+
         <div className="BaseStats-box">
           <RadarChart
             outerRadius={75}
