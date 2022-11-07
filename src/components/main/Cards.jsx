@@ -10,7 +10,7 @@ function Cards(props) {
         <li className="li-Cards" key={index}>
           <div className="Cards" id={obj.type[0]}>
             <div className="CardsUp">
-              <p className="Codigo">{"#" + obj.id}</p>
+              <p className="Codigo">{"#"+obj.id}</p>
             </div>
             <div className="CardsBody">
               <img className="pokemon" src={obj.img}></img>

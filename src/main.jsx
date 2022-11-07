@@ -10,10 +10,13 @@ import PageNotFound from "./routes/pageNoFound";
 import Root from "./components/Parent";
 import PokemonProfile from "./components/profiles/Pokemonprofile";
 
+import ErrorPage from "../src/routes/ErrorPage";
+
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root /> /*aqui colocó la App*/,
+    errorElement: <ErrorPage />,
   },
   {
     path: "PokemonProfile/:nombre",
