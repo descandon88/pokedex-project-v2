@@ -183,7 +183,7 @@ const PokemonProfile = () => {
         <div className="BaseStats-box">
           <RadarChart
             outerRadius={75}
-            width={370}
+            width={350}
             height={250}
             cy={"40%"}
             data={pokemonDetail[0].stats}
