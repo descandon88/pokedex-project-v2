@@ -11,9 +11,12 @@ import PokemonProfile from "./components/profiles/Pokemonprofile";
 
 import ErrorPage from "../src/routes/ErrorPage"
 
+// import Home from "./components/Home/Home"
+import Home from "./components/Home/Home";
+
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "pokedex/",
     element: <Root /> /*aqui colocó la App*/,
     errorElement: <ErrorPage />,
 
@@ -22,7 +25,14 @@ const router = createBrowserRouter([
     path: "PokemonProfile/:nombre",
     element: <PokemonProfile />,
   },
+
+  {
+    path: "/",
+    element: <Home/>,
+  }
 ]);
+
+
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>

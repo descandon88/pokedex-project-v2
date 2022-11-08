@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="pageError">
       <div className="div1">
-        <img src={imgError} />
+        <img src={imgError} ></img>
       </div>
       <div className="div2">
         <span className="text">
