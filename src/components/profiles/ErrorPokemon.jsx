@@ -1,13 +1,13 @@
 import React from "react";
 import "../profiles/App.css";
-import imgError from "../profiles/images/ErrorPage.png";
+import imgError from "../profiles/images/ErrorPage2.png";
 
 
 function App() {
   return (
     <div className="pageError">
       <div className="div1">
-        <img src={imgError} />
+        <img src={imgError} ></img>
       </div>
       <div className="div2">
         <span className="text">
