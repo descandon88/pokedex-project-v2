@@ -3,15 +3,14 @@ import Searcher from "./header/Searcher";
 // import Datos from "./data/datos";
 import Cards from "./main/Cards";
 import "../components/style.css";
-import PokemonProfile from "./profiles/Pokemonprofile";
+// import PokemonProfile from "./profiles/Pokemonprofile";
 
 function Parent() {
   const [search, setSearch] = useState(false);
   const [inputText, setinputText] = useState("");
-  // const [apiPokemon, setapiPokemon] = useState(Datos);
   const [apiPokemon, setapiPokemon] = useState([]);
   const [buttonSort, setButtonSort] = useState("#️⃣⬇️");
-  const [MostrarButton, setMostrarButton] = useState(false);
+  // const [MostrarButton, setMostrarButton] = useState(false);
   const [mostrarProfile, setmostrarProfile] = useState(false);
   const [pokemones, setPokemones] = useState([]);
 
@@ -24,8 +23,6 @@ function Parent() {
       .then((data) => {
         setapiPokemon(data);
         setPokemones(data);
-        // setPokemones(apiPokemon);
-        // console.log("se cargó pokemones: ", pokemones);
       })
       .catch((error) => {
         alert(error);
@@ -41,14 +38,10 @@ function Parent() {
     setPokemones(apiPokemon);
   };
   const pokemonSearch = (e) => {
-    // setPokemones(apiPokemon);
     setinputText(e.target.value);
     setSearch(true);
     console.log("se ingresa el texto dentro del pokemonSearch", inputText);
-    // let key = e.key;
-    // console.log("You pressed a key: " + key);
-    // if (key === "Enter" || inputText > 0) {
-    // console.log("se presiona Enter");
+
     const pokemonFiltered = apiPokemon.filter((LocalArray) => {
       if (
         LocalArray.nombre.toLowerCase().includes(e.target.value.toLowerCase())
@@ -70,7 +63,6 @@ function Parent() {
       }
     } else {
       setPokemones(apiPokemon);
-      // setSearch(false);
     }
   };
 
@@ -112,7 +104,6 @@ function Parent() {
       />
       <Cards DatosApi={pokemones} />
     </div>
-
   );
 }
 

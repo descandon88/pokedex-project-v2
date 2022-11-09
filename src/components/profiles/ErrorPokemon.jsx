@@ -2,7 +2,6 @@ import React from "react";
 import "../profiles/App.css";
 import imgError from "../profiles/images/ErrorPage2.png";
 
-
 function App() {
   return (
     <div className="pageError">
@@ -15,14 +14,10 @@ function App() {
             <span className="error440">440</span> <br />
             Pokemon not fiend
           </h2>
-          <p>
-           this pokemon not exist
-          </p>
+          <p>this pokemon not exist</p>
         </span>
       </div>
-      <div className="div3">
-       
-      </div>
+      <div className="div3"></div>
     </div>
   );
 }

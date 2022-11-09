@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./profile.css";
 import arrowLeft from "./images/arrow-left.svg";
-
 import frame from "./images/Frame.svg";
 import weight from "./images/Weight.svg";
 import height from "./images/Height.svg";
@@ -16,29 +15,26 @@ import {
   PolarRadiusAxis,
   Radar,
 } from "recharts";
-// import Chart from "react-apexcharts";
 
 const PokemonProfile = () => {
   const [apiProfile, setapiProfile] = useState();
   const [apiPokemonPro, setapiPokemonPro] = useState([]);
   const { nombre } = useParams();
 
-  useEffect(() => {
-    fetch("http://localhost:3000/pokemons", {
-      method: "GET",
-      headers: { "content-Type": "application/json" },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("esta es la data" + data);
-        setapiProfile(data);
-      })
-      .catch((error) => {
-        alert(error);
-      });
-  }, []);
-
-  // console.log("aqui debería de ir el apiProfile: " + apiProfile);
+  // useEffect(() => {
+  //   fetch("http://localhost:3000/pokemons", {
+  //     method: "GET",
+  //     headers: { "content-Type": "application/json" },
+  //   })
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       console.log("esta es la data" + data);
+  //       setapiProfile(data);
+  //     })
+  //     .catch((error) => {
+  //       alert(error);
+  //     });
+  // }, []);
 
   const pokemonDetail = Datos.filter((arrayDatos) => {
     return arrayDatos.nombre === nombre;
@@ -49,11 +45,6 @@ const PokemonProfile = () => {
     return arrayDatos.nombre === nombre;
   });
 
-  // const pokemonTypes = Datos.filter((arrayTypes) => {
-  //   if (arrayTypes.nombre === nombre) {
-  //     return arrayTypes.type;
-  //   }
-  // });
   const pokemonMoves = (array) => {
     return array.map((array, index) => <li key={index}>{array}</li>);
   };
@@ -75,7 +66,6 @@ const PokemonProfile = () => {
           <h1 className="h1Header">{pokemonDetail[0].nombre}</h1>
           {console.log(pokemonDetail.nombre)}
 
-          {/* <h2 className="h2Header">#001</h2> */}
           <h2 className="h2Header">#{pokemonDetail[0].id}</h2>
         </div>
       </header>
@@ -125,8 +115,7 @@ const PokemonProfile = () => {
             <p> {pokemonDetail[0].height}</p>
           </div>
           <div className="moves">
-            {/* Chiorophyll <br />
-            Overgrow */}
+         
             <ul>{pokemonMoves(pokemonDetail[0].moves)}</ul>
           </div>
         </div>
@@ -143,7 +132,6 @@ const PokemonProfile = () => {
         >
           Base Stats
         </h4>
-
 
         <div className="BaseStats-box">
           <RadarChart
