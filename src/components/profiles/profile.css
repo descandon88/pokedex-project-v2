@@ -28,7 +28,7 @@ header {
   flex-direction: row;
   align-items:center;
   justify-content: space-between;
-  margin: 0px 25px 0px 25px;
+  margin: 35px 25px 0px 25px;
 }
 
 .h1Header {
@@ -38,6 +38,8 @@ header {
   top: 10px;
   border: 0px;
   padding: 0px;
+  width: 250px;
+  margin-top: 39px;
 
 }
 
