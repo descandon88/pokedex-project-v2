@@ -9,7 +9,6 @@ import { useParams } from "react-router-dom";
 import Datos from "../data/datos";
 import { Link, useLocation } from "react-router-dom";
 import {
- 
   Legend,
   RadarChart,
   PolarGrid,
@@ -18,7 +17,7 @@ import {
   Radar,
 } from "recharts";
 
-import PokemonError from "../profiles/ErrorPokemon"
+import PokemonError from "../profiles/ErrorPokemon";
 
 // import Chart from "react-apexcharts";
 
@@ -27,7 +26,6 @@ const PokemonProfile = () => {
 
   const pokemonDetail = Datos.filter((arrayDatos) => {
     return arrayDatos.nombre === nombre;
-    
   });
   console.log(pokemonDetail);
   /*if (pokemonDetail.length == 0) {
@@ -47,7 +45,11 @@ const PokemonProfile = () => {
   //   }
   // });
   const pokemonMoves = (array) => {
-    return array.map((array, index) => <li key={index} className="listHabilities">{array}</li>);
+    return array.map((array, index) => (
+      <li key={index} className="listHabilities">
+        {array}
+      </li>
+    ));
   };
 
   console.log("Los tipos: " + pokemonDetail[0].type[1]);
@@ -76,29 +78,38 @@ const PokemonProfile = () => {
     >
       <header>
         <div className="header1">
-          <Link to={`/Pokedex`}>
-            <img className="arrowLeft" src={arrowLeft} alt="Flecha" />
-          </Link>
-          <h1 className="h1Header">{pokemonDetail[0].nombre}</h1>
-          {console.log(pokemonDetail.nombre)}
+          <div className="div1">
+            <Link to={`/Pokedex`}>
+              <img className="arrowLeft" src={arrowLeft} alt="Flecha" />
+            </Link>
+          </div>
+          <div className="div2">
+            <h1 className="h1Header">{pokemonDetail[0].nombre}</h1>
+          </div>
 
-          {/* <h2 className="h2Header">#001</h2> */}
-          <h2 className="h2Header">#{pokemonDetail[0].id}</h2>
+          {console.log(pokemonDetail.nombre)}
+          <div className="div3">
+            <h2 className="h2Header">#{pokemonDetail[0].id}</h2>
+          </div>
         </div>
       </header>
 
       <main>
         <div className="image-section">
           {Datos[pokemonIndex - 1] && (
-            <Link to={`/Pokedex/PokemonProfile/${Datos[pokemonIndex - 1].nombre}`}>
+            <Link
+              to={`/Pokedex/PokemonProfile/${Datos[pokemonIndex - 1].nombre}`}
+            >
               <img className="frame-left" src={frame} alt="Frame" />
             </Link>
           )}
-      
-              <img className="pokemon-image" src={pokemonDetail[0].img} alt="#" />
-         
-           {Datos[pokemonIndex + 1] && (
-            <Link to={`/Pokedex/PokemonProfile/${Datos[pokemonIndex + 1].nombre}`}>
+
+          <img className="pokemon-image" src={pokemonDetail[0].img} alt="#" />
+
+          {Datos[pokemonIndex + 1] && (
+            <Link
+              to={`/Pokedex/PokemonProfile/${Datos[pokemonIndex + 1].nombre}`}
+            >
               <img className="frame-right" src={frame} alt="Frame" />
             </Link>
           )}
@@ -129,7 +140,6 @@ const PokemonProfile = () => {
             <p> {pokemonDetail[0].height}</p>
           </div>
           <div className="moves">
-           
             <ul className="listUl">{pokemonMoves(pokemonDetail[0].moves)}</ul>
           </div>
         </div>
@@ -146,7 +156,6 @@ const PokemonProfile = () => {
         >
           Base Stats
         </h4>
-
 
         <div className="BaseStats-box">
           <RadarChart
