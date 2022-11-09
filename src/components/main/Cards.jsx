@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function Cards(props) {
   const PokemonCards = (obj) => {
     return obj.map((obj, index) => (
-      <Link to={`PokemonProfile/${obj.nombre}`}>
+      <Link to={`PokemonProfile/${obj.nombre}`} className="linkCards">
         <li className="li-Cards" key={index}>
           <div className="Cards" id={obj.type[0]}>
             <div className="CardsUp">

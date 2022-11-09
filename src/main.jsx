@@ -27,10 +27,6 @@ const router = createBrowserRouter([
     path: "Pokedex/PokemonProfile/:nombre",
     element: <PokemonProfile />,
   },
-  {
-    path: "*",
-    element: <PageNotFound />,
-  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

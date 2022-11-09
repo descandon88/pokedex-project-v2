@@ -112,6 +112,7 @@ function Parent() {
       />
       <Cards DatosApi={pokemones} />
     </div>
+
   );
 }
 
