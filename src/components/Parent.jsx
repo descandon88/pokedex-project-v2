@@ -1,35 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Searcher from "./header/Searcher";
-import Datos from "./data/datos";
+// import Datos from "./data/datos";
 import Cards from "./main/Cards";
 import "../components/style.css";
-import { useNavigate } from "react-router-dom";
 import PokemonProfile from "./profiles/Pokemonprofile";
 
 function Parent() {
   const [search, setSearch] = useState(false);
   const [inputText, setinputText] = useState("");
-  const [apiPokemon, setapiPokemon] = useState(Datos);
+  // const [apiPokemon, setapiPokemon] = useState(Datos);
+  const [apiPokemon, setapiPokemon] = useState([]);
   const [buttonSort, setButtonSort] = useState("#️⃣⬇️");
   const [MostrarButton, setMostrarButton] = useState(false);
   const [mostrarProfile, setmostrarProfile] = useState(false);
-  const [variableLink, setvariableLink] = useState("");
+  const [pokemones, setPokemones] = useState([]);
 
-  const navigate = useNavigate();
+  useEffect(() => {
+    fetch("http://localhost:3000/pokemons", {
+      method: "GET",
+      headers: { "content-Type": "application/json" },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setapiPokemon(data);
+        setPokemones(data);
+        // setPokemones(apiPokemon);
+        // console.log("se cargó pokemones: ", pokemones);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }, []);
 
   const handleProfile = () => {
-    // navigate("PokemonProfile");
     setmostrarProfile(true);
   };
 
   const handleClear = () => {
     setinputText("");
-    setapiPokemon(Datos);
-
-    //  setSearch(true);
-    // console.log("se ingresa el texto dentro del handleSearch", inputText);
+    setPokemones(apiPokemon);
   };
   const pokemonSearch = (e) => {
+    // setPokemones(apiPokemon);
     setinputText(e.target.value);
     setSearch(true);
     console.log("se ingresa el texto dentro del pokemonSearch", inputText);
@@ -49,19 +61,15 @@ function Parent() {
 
     if (e.target.value !== "") {
       if (pokemonFiltered.length === 0) {
-        setapiPokemon(Datos);
+        setPokemones(apiPokemon);
         setSearch(false);
-        console.log("se imprime todo el objeto " + apiPokemon);
+        console.log("se imprime todo el objeto " + pokemones);
       } else {
-        setapiPokemon(pokemonFiltered);
-        console.log("se imprime datosApi" + apiPokemon);
+        setPokemones(pokemonFiltered);
+        console.log("se imprime datosApi" + pokemones);
       }
-      // if (inputText.length === 0) {
-      //   setapiPokemon(Datos);
-      //   setSearch(false);
-      // }
     } else {
-      setapiPokemon(Datos);
+      setPokemones(apiPokemon);
       // setSearch(false);
     }
   };
@@ -69,25 +77,25 @@ function Parent() {
   const PokemonListSort = () => {
     console.log("Se solicita ordenar las cards");
     if (buttonSort === "#️⃣⬇️") {
-      const strAscending = [...apiPokemon].sort((a, b) =>
+      const strAscending = [...pokemones].sort((a, b) =>
         a.nombre > b.nombre ? 1 : -1
       );
-      setapiPokemon(strAscending);
+      setPokemones(strAscending);
 
       setButtonSort("🔤⬇️");
     } else {
-      const numbAscending = [...apiPokemon].sort((a, b) =>
+      const numbAscending = [...pokemones].sort((a, b) =>
         a.id > b.id ? 1 : -1
       );
 
-      setapiPokemon(numbAscending);
+      setPokemones(numbAscending);
 
       setButtonSort("#️⃣⬇️");
     }
   };
 
   return (
-    <div >
+    <div>
       <Searcher
         // handleSearchPokemon={handleSearch}
         PokemonInput={inputText}
@@ -95,19 +103,14 @@ function Parent() {
         HandleClear={handleClear}
         Search={search}
         SetPokemonInput={setinputText}
-        DatosApi={apiPokemon}
-        setPokemonDisplay={setapiPokemon}
+        DatosApi={pokemones}
+        setPokemonDisplay={setPokemones}
         pokemonSort={PokemonListSort}
         ButtonSort={buttonSort}
         PokemonSearch={pokemonSearch}
         label="🔍"
       />
-      <Cards
-        DatosApi={apiPokemon}
-        // setVariableLink={setvariableLink}
-        // variableLink={variableLink}
-      />
-      {/* <PokemonProfile MostrarProfile={mostrarProfile} /> */}
+      <Cards DatosApi={pokemones} />
     </div>
   );
 }

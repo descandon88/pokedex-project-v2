@@ -1,25 +1,30 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Parent from "./components/Parent";
+// import Parent from "./components/Parent";
 // import App from "./App";
 import "./index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // import Root from "./routes/root";
 import PageNotFound from "./routes/pageNoFound";
-import Root from "./components/Parent";
+import Pokedex from "./components/Parent";
 import PokemonProfile from "./components/profiles/Pokemonprofile";
-
-import ErrorPage from "../src/routes/ErrorPage";
+import Home from "./components/Home/Home";
+// import ErrorPage from "../src/routes/ErrorPage";
 
 const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Root /> /*aqui colocó la App*/,
-    errorElement: <ErrorPage />,
+    path: "/Pokedex",
+    element: <Pokedex /> /*aqui colocó la App*/,
+    // errorElement: <ErrorPage />,
   },
   {
-    path: "PokemonProfile/:nombre",
+    path: "/",
+    element: <Home />,
+    // errorElement: <ErrorPage />,
+  },
+  {
+    path: "Pokedex/PokemonProfile/:nombre",
     element: <PokemonProfile />,
   },
   {
@@ -30,7 +35,6 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    {/* <ColorModeScript /> */}
     {/* <App /> */}
     <RouterProvider router={router} />
   </React.StrictMode>

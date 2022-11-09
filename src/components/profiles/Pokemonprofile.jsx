@@ -1,33 +1,48 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./profile.css";
 import arrowLeft from "./images/arrow-left.svg";
-// import bulbasaur from "./images/bulbasaur.png";
+
 import frame from "./images/Frame.svg";
 import weight from "./images/Weight.svg";
 import height from "./images/Height.svg";
 import { useParams } from "react-router-dom";
 import Datos from "../data/datos";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import {
-  RadialBarChart,
-  RadialBar,
   Legend,
-  Tooltip,
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
   PolarRadiusAxis,
   Radar,
 } from "recharts";
-// import Chart from "react-apexcharts";
 
 const PokemonProfile = () => {
+  const [apiProfile, setapiProfile] = useState();
+  const [apiPokemonPro, setapiPokemonPro] = useState([]);
   const { nombre } = useParams();
+
+  useEffect(() => {
+    fetch("http://localhost:3000/pokemons", {
+      method: "GET",
+      headers: { "content-Type": "application/json" },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("esta es la data" + data);
+        setapiProfile(data);
+      })
+      .catch((error) => {
+        alert(error);
+      });
+  }, []);
+
+  // console.log("aqui debería de ir el apiProfile: " + apiProfile);
 
   const pokemonDetail = Datos.filter((arrayDatos) => {
     return arrayDatos.nombre === nombre;
   });
-  console.log(pokemonDetail);
+  console.log("pokemon detail:" + pokemonDetail[0]);
 
   const pokemonIndex = Datos.findIndex((arrayDatos) => {
     return arrayDatos.nombre === nombre;
@@ -42,25 +57,9 @@ const PokemonProfile = () => {
     return array.map((array, index) => <li key={index}>{array}</li>);
   };
 
-  console.log("Los tipos: " + pokemonDetail[0].type[1]);
+  console.log("aqui se imprimi el pokemonDetail: ", pokemonDetail[0]);
 
-  let pokemonPre = "";
-  let pokemonPos = "";
-  Datos.forEach(function (arreglo, index) {
-    if (arreglo.nombre === pokemonDetail[0].nombre) {
-      console.log("prueba:" + arreglo.nombre + index);
-      if (index === 0 || index === 8) {
-        pokemonPre = Datos[index];
-        pokemonPos = Datos[index];
-      } else {
-        pokemonPre = Datos[index - 1];
-        pokemonPos = Datos[index + 1];
-      }
-    }
-  });
-  const pokemonPrevius = pokemonPre;
-  const pokemonPost = pokemonPos;
-  console.log(pokemonPre.nombre);
+  // console.log("Los tipos: " + pokemonDetail[0].type[1]);
 
   return (
     <div
@@ -69,7 +68,7 @@ const PokemonProfile = () => {
     >
       <header>
         <div className="header1">
-          <Link to={`/`}>
+          <Link to={`/Pokedex`}>
             <img className="arrowLeft" src={arrowLeft} alt="Flecha" />
           </Link>
           <h1 className="h1Header">{pokemonDetail[0].nombre}</h1>
@@ -83,14 +82,18 @@ const PokemonProfile = () => {
       <main>
         <div className="image-section">
           {Datos[pokemonIndex - 1] && (
-            <Link to={`/PokemonProfile/${Datos[pokemonIndex - 1].nombre}`}>
+            <Link
+              to={`/Pokedex/PokemonProfile/${Datos[pokemonIndex - 1].nombre}`}
+            >
               <img className="frame-left" src={frame} alt="Frame" />
             </Link>
           )}
 
           <img className="pokemon-image" src={pokemonDetail[0].img} alt="#" />
           {Datos[pokemonIndex + 1] && (
-            <Link to={`/PokemonProfile/${Datos[pokemonIndex + 1].nombre}`}>
+            <Link
+              to={`/Pokedex/PokemonProfile/${Datos[pokemonIndex + 1].nombre}`}
+            >
               <img className="frame-right" src={frame} alt="Frame" />
             </Link>
           )}
@@ -121,8 +124,6 @@ const PokemonProfile = () => {
             <p> {pokemonDetail[0].height}</p>
           </div>
           <div className="moves">
-            {/* Chiorophyll <br />
-            Overgrow */}
             <ul>{pokemonMoves(pokemonDetail[0].moves)}</ul>
           </div>
         </div>
@@ -205,8 +206,5 @@ const PokemonProfile = () => {
       </main>
     </div>
   );
-
-  // return Profile(Datos);
 };
-// };
 export default PokemonProfile;

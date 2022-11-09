@@ -58,7 +58,6 @@ function Searcher(props) {
           {props.ButtonSort}
         </button>
 
-        {/* <p>{props.PokemonInput}</p> */}
       </div>
     </div>
   );

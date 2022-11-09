@@ -47,6 +47,7 @@ header::before {
     font-size: 32px;
     margin-right: 100px;
     color: white;
+    position:relative;
 }
 
 .h2Header {

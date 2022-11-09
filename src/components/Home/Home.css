@@ -1,0 +1,112 @@
+/* .pokeball {
+  animation-name: spin;
+  animation-duration: 10000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear; 
+}
+
+@keyframes spin {
+    from {
+        transform:rotate(0deg);
+    }
+    to {
+        transform:rotate(360deg);
+    }
+} */
+.container {
+    background-image:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4)), url(/src/components/data/img/forest.jpg);
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    box-shadow: 0px 1px 43px 22px rgba(0,0,0,0.37);
+    -webkit-box-shadow: 0px 1px 43px 22px rgba(0,0,0,0.37);
+    -moz-box-shadow: 0px 1px 43px 22px rgba(0,0,0,0.37);
+    height: 100vh;
+    width: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    animation: scroll 70s linear infinite;
+}
+
+@keyframes scroll {
+    100%{
+     background-position:0px -0px;
+   }
+ }
+ 
+ @media (prefers-reduced-motion) {
+   .wrapper {
+     animation: scroll 200s linear infinite;
+   }
+ }
+
+
+.Logos {
+}
+/* 
+.pokeball {
+    background-image: url(/src/components/data/img/pokeball.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 200px;
+    height: 150px;
+    margin: 0 auto 0 auto;
+} */
+
+.pokedexLogo{
+    background-image: url(/src/components/data/img/Pokedex_Logo.webp);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 90%;
+    height: 20vh;
+    margin: 0 auto 0 auto;
+    -webkit-animation: zoomin 10s ease-in infinite;
+  animation: zoomin 10s ease-in infinite;
+  transition: all .5s ease-in-out;
+  overflow: hidden;
+}
+
+  /* Zoom in Keyframes */
+  @keyframes zoomin {
+    0% {transform: scale(0.9);}
+    50% {transform: scale(1.1);}
+    100% {transform: scale(0.9);}
+  } /*End of Zoom in Keyframes */
+
+a.button{
+    width: 60px;
+    height: 20px;
+    background-color: #0374be;
+    box-shadow: 0px 0px 15px 2px #0e2e6a;
+
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    padding: 14px 18px;
+    border-radius: 10px;
+    margin: 10% auto 0 auto;
+   }
+
+   a.button:hover{
+    background: linear-gradient(to bottom,#0099ff ,rgb(49, 88, 116));
+   }
+
+   a.button:active{
+    transform: scale(1.15);
+   }
+
+h1 {
+    font-size: 0.7rem;
+    color: black;
+    position: absolute;
+    left: 0; 
+  right: 0;
+  bottom: 0;
+  margin-left: auto; 
+  margin-right: auto; 
+  width: 30vw;
+}
