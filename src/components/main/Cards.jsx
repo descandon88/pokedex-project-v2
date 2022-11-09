@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Parent from "../Parent";
 import "../css/styles.css";
 import { Link } from "react-router-dom";
 

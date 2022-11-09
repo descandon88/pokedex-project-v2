@@ -9,10 +9,8 @@ import { useParams } from "react-router-dom";
 import Datos from "../data/datos";
 import { Link, useLocation } from "react-router-dom";
 import {
-  RadialBarChart,
-  RadialBar,
+ 
   Legend,
-  Tooltip,
   RadarChart,
   PolarGrid,
   PolarAngleAxis,
@@ -29,15 +27,16 @@ const PokemonProfile = () => {
 
   const pokemonDetail = Datos.filter((arrayDatos) => {
     return arrayDatos.nombre === nombre;
+    
   });
   console.log(pokemonDetail);
-  if (pokemonDetail.length == 0) {
+  /*if (pokemonDetail.length == 0) {
     return (
       <div >
        <PokemonError/>
       </div>
     );
-  }
+  }*/
   const pokemonIndex = Datos.findIndex((arrayDatos) => {
     return arrayDatos.nombre === nombre;
   });
@@ -48,7 +47,7 @@ const PokemonProfile = () => {
   //   }
   // });
   const pokemonMoves = (array) => {
-    return array.map((array, index) => <li key={index}>{array}</li>);
+    return array.map((array, index) => <li key={index} className="listHabilities">{array}</li>);
   };
 
   console.log("Los tipos: " + pokemonDetail[0].type[1]);
@@ -70,7 +69,6 @@ const PokemonProfile = () => {
   const pokemonPrevius = pokemonPre;
   const pokemonPost = pokemonPos;
   console.log(pokemonPre.nombre);
-
   return (
     <div
       className="container-description"
@@ -78,7 +76,7 @@ const PokemonProfile = () => {
     >
       <header>
         <div className="header1">
-          <Link to={`/`}>
+          <Link to={`/Pokedex`}>
             <img className="arrowLeft" src={arrowLeft} alt="Flecha" />
           </Link>
           <h1 className="h1Header">{pokemonDetail[0].nombre}</h1>
@@ -92,14 +90,15 @@ const PokemonProfile = () => {
       <main>
         <div className="image-section">
           {Datos[pokemonIndex - 1] && (
-            <Link to={`/PokemonProfile/${Datos[pokemonIndex - 1].nombre}`}>
+            <Link to={`/Pokedex/PokemonProfile/${Datos[pokemonIndex - 1].nombre}`}>
               <img className="frame-left" src={frame} alt="Frame" />
             </Link>
           )}
-
-          <img className="pokemon-image" src={pokemonDetail[0].img} alt="#" />
-          {Datos[pokemonIndex + 1] && (
-            <Link to={`/PokemonProfile/${Datos[pokemonIndex + 1].nombre}`}>
+      
+              <img className="pokemon-image" src={pokemonDetail[0].img} alt="#" />
+         
+           {Datos[pokemonIndex + 1] && (
+            <Link to={`/Pokedex/PokemonProfile/${Datos[pokemonIndex + 1].nombre}`}>
               <img className="frame-right" src={frame} alt="Frame" />
             </Link>
           )}
@@ -151,7 +150,7 @@ const PokemonProfile = () => {
 
         <div className="BaseStats-box">
           <RadarChart
-            outerRadius={75}
+            outerRadius={70}
             width={350}
             height={250}
             cy={"40%"}

@@ -22,12 +22,12 @@ header::before {
     position: absolute;
     width: 250px;
     height: 250px;
-    top: 7%;
+    top: 3%;
     left: 45%;
     bottom: 0;
     right: 0;
     opacity: 0.2;
-    background-image: url(../src/components/data/img/Pokeball.png);
+    background-image: url(../../src/components/data/img/Pokeball.png);
     background-repeat: no-repeat;
     background-size: 250px;
     filter: invert(10) brightness(1.2);
@@ -45,7 +45,7 @@ header::before {
     bottom: 0;
     right: 0;
     opacity: 0.2;
-    background-image: url(../src/components/data/img/Pokeball.png);
+    background-image: url(../../src/components/data/img/Pokeball.png);
     background-repeat: no-repeat;
     background-size: 250px;
     filter: invert(10) brightness(1.2);

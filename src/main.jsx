@@ -7,20 +7,28 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 // import Root from "./routes/root";
 import Root from "./components/Parent";
+import Home from "../src/components/Home/Home"
 import PokemonProfile from "./components/profiles/Pokemonprofile";
 
-import ErrorPage from "../src/routes/ErrorPage"
+import ErrorPage from "../src/routes/ErrorPage";
+import ErrorPokemon from "../src/components/profiles/ErrorPokemon";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root /> /*aqui colocó la App*/,
+    element: <Home /> /*aqui colocó la App*/,
     errorElement: <ErrorPage />,
 
   },
   {
-    path: "PokemonProfile/:nombre",
+    path: "Pokedex/",
+    element: <Parent/>,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "Pokedex/PokemonProfile/:nombre",
     element: <PokemonProfile />,
+    errorElement: <ErrorPokemon/>,
   },
 ]);
 

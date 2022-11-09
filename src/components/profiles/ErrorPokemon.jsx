@@ -1,7 +1,7 @@
 import React from "react";
 import "../profiles/App.css";
 import imgError from "../profiles/images/ErrorPage2.png";
-
+import { Link } from "react-router-dom";
 
 function App() {
   return (
@@ -13,15 +13,18 @@ function App() {
         <span className="text">
           <h2>
             <span className="error440">440</span> <br />
-            Pokemon not fiend
+            Pokemon not found
           </h2>
           <p>
            this pokemon not exist
           </p>
         </span>
+        <Link to={`/`}>
+          <button className="buttonHome">Home</button>
+        </Link>
       </div>
       <div className="div3">
-       
+      
       </div>
     </div>
   );
