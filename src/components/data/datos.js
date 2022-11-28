@@ -2,7 +2,7 @@ let pokemons = [
   {
     nombre: "Bulbasour",
     id: "001",
-    img: "/public/img/Bulbasour.png",
+    img: "../assets/img/Bulbasour.png",
     type: ["Grass", "Poisson"],
     weight: "6,9 kg",
     height: "0,7 m",
