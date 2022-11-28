@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Searcher from "./header/Searcher";
-// import Datos from "./data/datos";
+import Datos from "./data/datos";
 import Cards from "./main/Cards";
 import "../components/style.css";
 // import PokemonProfile from "./profiles/Pokemonprofile";
@@ -12,21 +12,23 @@ function Parent() {
   const [buttonSort, setButtonSort] = useState("#️⃣⬇️");
   // const [MostrarButton, setMostrarButton] = useState(false);
   const [mostrarProfile, setmostrarProfile] = useState(false);
-  const [pokemones, setPokemones] = useState([]);
+  const [pokemones, setPokemones] = useState(Data);
 
   useEffect(() => {
-    fetch("http://localhost:3000/pokemons", {
-      method: "GET",
-      headers: { "content-Type": "application/json" },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setapiPokemon(data);
-        setPokemones(data);
-      })
-      .catch((error) => {
-        alert(error);
-      });
+    // fetch("http://localhost:3000/pokemons", {
+    //   method: "GET",
+    //   headers: { "content-Type": "application/json" },
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     setapiPokemon(data);
+    //     setPokemones(data);
+    //   })
+    //   .catch((error) => {
+    //     alert(error);
+    //   });
+      setPokemones(Datos);
+
   }, []);
 
   const handleProfile = () => {
