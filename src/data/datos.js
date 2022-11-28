@@ -2,7 +2,7 @@ let pokemons = [
   {
     nombre: "Bulbasour",
     id: "001",
-    img: "../../public/img/Bulbasour.png",
+    img: "../public/img/Bulbasour.png",
     type: ["Grass", "Poisson"],
     weight: "6,9 kg",
     height: "0,7 m",
@@ -52,7 +52,7 @@ let pokemons = [
   {
     nombre: "Charmander",
     id: "004",
-    img: "../../public/img/Charmander.png",
+    img: "../public/img/Charmander.png",
     type: ["Fire"],
     weight: "8,5 kg",
     height: "0,6 m",
@@ -102,7 +102,7 @@ let pokemons = [
   {
     nombre: "Squirtle",
     id: "007",
-    img: "../../public/img/squirtle.png",
+    img: "../public/img/Squirtle.png",
     type: ["Water"],
     weight: "9,0 kg",
     height: "0,5 m",
@@ -196,7 +196,7 @@ let pokemons = [
   {
     nombre: "Pikachu",
     id: "025",
-    img: "../../public/img/Picachu.png",
+    img: "../public/img/Picachu.png",
     type: ["Electric"],
     weight: "5,0 kg",
     height: "0,4 m",
@@ -246,7 +246,7 @@ let pokemons = [
   {
     nombre: "Gastly",
     id: "093",
-    img: "../../public/img/Gostly.png",
+    img: "../public/img/Gostly.png",
     type: ["Ghost"],
     weight: "0,1 kg",
     height: "1,3 m",
