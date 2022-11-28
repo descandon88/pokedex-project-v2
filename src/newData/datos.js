@@ -334,7 +334,7 @@ let pokemons = [
   {
     nombre: "Mew",
     id: "162",
-    img: "/img/mew.png",
+    img: "/img/Mew.png",
     type: ["Psychic"],
     weight: "4,0 kg",
     height: "0,4 m",
