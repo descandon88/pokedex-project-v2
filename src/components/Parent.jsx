@@ -10,7 +10,6 @@ function Parent() {
   const [inputText, setinputText] = useState("");
   const [apiPokemon, setapiPokemon] = useState([]);
   const [buttonSort, setButtonSort] = useState("#️⃣⬇️");
-  // const [MostrarButton, setMostrarButton] = useState(false);
   const [mostrarProfile, setmostrarProfile] = useState(false);
   const [pokemones, setPokemones] = useState(Data);
 
@@ -28,6 +27,7 @@ function Parent() {
     //     alert(error);
     //   });
       setPokemones(Datos);
+      setapiPokemon(Datos);
 
   }, []);
 
