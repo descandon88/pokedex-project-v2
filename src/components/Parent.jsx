@@ -8,10 +8,10 @@ import "../components/style.css";
 function Parent() {
   const [search, setSearch] = useState(false);
   const [inputText, setinputText] = useState("");
-  const [apiPokemon, setapiPokemon] = useState([]);
+  const [apiPokemon, setapiPokemon] = useState(Datos);
   const [buttonSort, setButtonSort] = useState("#️⃣⬇️");
   const [mostrarProfile, setmostrarProfile] = useState(false);
-  const [pokemones, setPokemones] = useState(Data);
+  const [pokemones, setPokemones] = useState(Datos);
 
   useEffect(() => {
     // fetch("http://localhost:3000/pokemons", {
@@ -26,8 +26,8 @@ function Parent() {
     //   .catch((error) => {
     //     alert(error);
     //   });
-      setPokemones(Datos);
-      setapiPokemon(Datos);
+      // setPokemones(Datos);
+      // setapiPokemon(Datos);
 
   }, []);
 
