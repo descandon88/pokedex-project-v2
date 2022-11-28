@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Searcher from "./header/Searcher";
-import Datos from "../data/datos";
+import Datos from "../newData/datos";
 import Cards from "./main/Cards";
 import "../components/style.css";
 // import PokemonProfile from "./profiles/Pokemonprofile";

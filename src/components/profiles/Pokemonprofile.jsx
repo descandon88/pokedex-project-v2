@@ -5,7 +5,7 @@ import frame from "./images/Frame.svg";
 import weight from "./images/Weight.svg";
 import height from "./images/Height.svg";
 import { useParams } from "react-router-dom";
-import Datos from "../data/datos";
+import Datos from "../../newData/datos";
 import { Link } from "react-router-dom";
 import {
   Legend,
